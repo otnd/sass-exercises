@@ -1,0 +1,37 @@
+@use 'variables' as v; 
+@use 'mixin' as mx;
+@use 'converter' as p2r;
+@use 'layout';
+
+
+$list: 1, 2, 3;
+@each $item in $list {
+    .fs-#{$item}rem{
+        font-size: $item * 1rem;
+    }
+}
+
+div section:nth-child(4){
+    display: flex;
+    gap: 1rem;
+    div{
+        height: p2r.pxtorem(45px);
+        width: p2r.pxtorem(45px);
+        border: p2r.pxtorem(1px) solid v.$color-primary;
+    
+        @for $var from 1 to 20 {
+            @if $var == 10 {
+                &:nth-child(#{$var}){
+                    background-color: v.$color-secondary;
+                    color: v.$color-primary;
+                }
+            }
+            @else{
+                &:nth-child(#{$var}){
+                    background-color: darken($color: white, $amount: calc($var * 5));
+                    color: lighten($color: #000000, $amount: calc($var * 5));
+                }
+            }
+        }
+    }
+}

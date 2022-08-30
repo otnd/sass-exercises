@@ -1,0 +1,41 @@
+$color-primary: red;
+$color-secondary: blue; 
+$color-tertiary: green;
+
+body {
+
+    width: 100vw;
+    display: flex;
+    div {
+        display: flex;
+        flex-direction: column;
+        width: calc(100vw - 30px);
+        border: 1px solid $color-primary;
+        align-items: center;
+        h1 {
+            color: $color-tertiary;
+            border-bottom: 1px solid $color-secondary;
+            border-width: 50%
+        }        
+        section {
+            display: flex;
+            margin: 15px;
+            article {
+                display: flex;
+                flex: 1;
+                border:  1px solid $color-tertiary;
+                &:nth-child(even) {
+                    color: $color-primary;
+                }
+                &:nth-child(odd) {
+                    color: $color-secondary;
+                }
+                p {
+                    margin: 30px 15px;
+                    text-align: center;
+                }
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,4 @@
+@use "calc" as c;
+
+$size: c.rem(24px);
+$border: c.rem(1px) solid;

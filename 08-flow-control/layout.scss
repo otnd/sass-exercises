@@ -1,0 +1,41 @@
+@use 'variables' as v; 
+@use 'mixin' as mx;
+@use 'converter' as p2r;
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: p2r.pxtorem(1px) solid v.$color-primary;
+    gap: 1rem;
+    padding: 1rem;
+    h1{
+        color: v.$color-tertiary;
+        text-decoration: underline;
+        text-decoration-color: v.$color-secondary;
+    }
+    h2{ 
+        @extend h1;
+        padding: 1rem;
+        border: p2r.pxtorem(1px) solid v.$color-primary;
+    }
+    section{
+        display: flex;
+        article{
+            @include mx.article-card;
+            padding: 1rem;
+            p{
+                margin: auto;
+            }
+            &:nth-child(even){
+                @include mx.article-card($font-color: v.$color-primary)
+            }
+        }
+        &:nth-child(5){
+            article{
+                @include mx.article-card($color: v.$color-secondary, $font-color: v.$color-tertiary, $font-size: 24px)
+            }
+        }
+    }
+}

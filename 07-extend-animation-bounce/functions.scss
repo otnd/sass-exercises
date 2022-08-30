@@ -1,0 +1,13 @@
+@function random-hex(){
+    $hex: '';
+    $list: 'a','b','c','d','e','f';
+    @while str-length($hex) < 6 {
+        $val: random($limit: 15);
+        @if $val > 9 {
+            $key: (random($limit: 6));
+            $val: nth($list, $key);
+        }
+        $hex: $hex + #{$val}
+    }
+    @return unquote('#' + $hex)
+}

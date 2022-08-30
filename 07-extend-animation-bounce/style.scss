@@ -1,0 +1,7 @@
+@use 'functions' as f;
+@use 'esercizio3';
+
+.bg-random{
+  @extend .oppity;
+  background-color: f.random-hex();
+}

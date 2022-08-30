@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 300px;
+  margin: 1rem;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.container .box {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.container .oppity, .container .bg-random {
+  animation-name: oppity;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+@keyframes oppity {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-100px);
+  }
+  60% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.bg-random {
+  background-color: #71aafc;
+}
+
+/*# sourceMappingURL=style.css.map */

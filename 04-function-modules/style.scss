@@ -1,0 +1,53 @@
+@use "colors" as v;
+
+@use "measure" as m;
+
+@use "calc" as c;
+
+  
+
+@mixin article($color, $width, $size, $font-color) {
+    border: m.$border $color;
+    font-size: $size;
+    color: $font-color;
+}
+
+body {
+    width: 100vw;
+
+
+    div {
+        width: calc(100vw - c.rem(30px));
+        border: m.$border v.$second-color;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1 {
+            color: v.$first-color;
+            border-bottom: m.$border v.$third-color;
+            border-width: 50%;
+        }
+        section {
+            display: flex;
+            margin: c.rem(15px);
+            article {
+                display: flex;
+                flex: 1;
+                &:nth-child(even){
+                    @include article (v.$first-color, m.$border, 1rem, v.$second-color)
+                }
+                &:nth-child(odd){
+                    @include article (v.$first-color, m.$border, 1rem, v.$third-color)
+                }
+                p {
+                    margin: 30px 15px;
+                    text-align: center;
+                }
+            }
+        }
+        #footer {
+            @include article(v.$third-color, m.$border, m.$size, v.$first-color);
+
+        }
+    }
+}
